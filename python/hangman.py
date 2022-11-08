@@ -21,9 +21,9 @@ def getBuiltWord(correctWord):
 def queryAnswer():
     c = ""
     while len(c) != 1:
-        c = raw_input("Give a character: ")
+        c = input("Give a character: ")
         if len(c) != 1:
-            print "Give a single character!"
+            print ("Give a single character!")
     return c
 
 # Returns true, if the given character can be found in given word
@@ -46,15 +46,15 @@ def insertChar(correctWord, builtWord, character):
 # To keep the program simpler, only four alternatives are provided
 def drawHangingMan(incorrectGuesses):
     if incorrectGuesses >= 1:
-        print " +--- "
-        print " |"
-        print " o"
+        print (" +--- ")
+        print (" |")
+        print (" o")
     if incorrectGuesses >= 2:
-        print "/|\\"
+        print ("/|\\")
     if incorrectGuesses >= 3:
-        print " |"
+        print (" |")
     if incorrectGuesses == 4:
-        print "/ \\"
+        print ("/ \\")
 
 
 # Main program
@@ -65,21 +65,21 @@ incorrectGuesses = 0
 # Loop until user guesses the word or four incorrect tries are made
 while incorrectGuesses < 4 and builtWord != correctWord:
     # output current word and query for letter
-    print builtWord
+    print (builtWord)
     c = queryAnswer()
     if charInWord(correctWord, c):
         builtWord = insertChar(correctWord, builtWord, c)
     else:
         incorrectGuesses = incorrectGuesses + 1
     drawHangingMan(incorrectGuesses)
-    print "\n"
+    print ("\n")
 
 # Finally output the 
-print "The word was", correctWord
+print ("The word was", correctWord)
 if builtWord == correctWord:
-    print "You won!"
+    print ("You won!")
 else:
-    print "You lost!"
+    print ("You lost!")
         
         
     
